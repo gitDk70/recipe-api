@@ -16,12 +16,20 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::resource('recipes', RecipeController::class);
+
+
+
+//public routes
+
+Route::get('/recipes', [RecipeController::class,'index']);
+Route::get('/recipes/{id}', [RecipeController::class, 'show']);
 Route::get('/recipes/search/{title}', [RecipeController::class,'search']);
 
-// Route::get('/recipes', [RecipeController::class,'index']);
-// Route::post('/recipes', [RecipeController::class, 'store']);
-// Route::get('/recipes/{id}', [RecipeController::class, 'show']);
+//protected routes (sancum)
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::group(['middleware' => ['auth:sanctum']], function () {
+    Route::get('/recipes/search/{title}', [RecipeController::class,'search']);
+    Route::post('/recipes', [RecipeController::class, 'store']);
+    Route::put('/recipes/{id}', [RecipeController::class, 'update']);
+    Route::delete('/recipes/{id}', [RecipeController::class, 'destroy']);
 });
