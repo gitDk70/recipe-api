@@ -14,7 +14,7 @@ class RecipeController extends Controller
      */
     public function index()
     {
-        //
+        return Recipe::all();
     }
 
     /**
@@ -25,7 +25,12 @@ class RecipeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'ingredients' => 'required',
+            'body' => 'required'
+        ]);
+        return Recipe::create($request->all());
     }
 
     /**
@@ -36,7 +41,7 @@ class RecipeController extends Controller
      */
     public function show($id)
     {
-        //
+       return Recipe::find($id);
     }
 
     /**
@@ -48,7 +53,10 @@ class RecipeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $recipe = Recipe::find($id);
+
+        $recipe->update($request->all());
+        return $recipe;
     }
 
     /**
@@ -59,6 +67,6 @@ class RecipeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Recipe::destroy($id);
     }
 }
