@@ -22,6 +22,7 @@ Route::resource('recipes', RecipeController::class);
 
 //public routes
 Route::post('/register', [AuthController::class, 'register']);
+Route::post('/login', [AuthController::class, 'login']);
 Route::get('/recipes', [RecipeController::class,'index']);
 Route::get('/recipes/{id}', [RecipeController::class, 'show']);
 Route::get('/recipes/search/{title}', [RecipeController::class,'search']);

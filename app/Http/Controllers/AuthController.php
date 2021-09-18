@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
+    //Register
+
     public function register(Request $request) {
         $fields = $request->validate([
             'name' => 'required|string',
@@ -30,7 +32,38 @@ class AuthController extends Controller
 
         return response($response, 201);
     }
-    
+
+    //Login
+
+    public function login(Request $request) {
+        $fields = $request->validate([
+            'email'=> 'required|string',
+            'password'=>'required|string'
+        ]);
+
+        //check if email exists(first occurence)
+
+        $user = User::where('email',$fields['email'])->first();
+
+        //check password
+        if(!$user || !Hash::check($fields['password'],$user->password)) {
+            return response([
+                'message' => 'Bad credentials'
+            ],401);
+        }
+
+        $token = $user->createToken('recipeToken')->plainTextToken;
+        $response = [
+            'user'=>$user,
+            'token'=>$token
+        ];
+
+        return response($response, 201);
+    }
+
+
+    //Logout
+
     public function logout(Request $request) {
         auth()->user()->tokens()->delete();
 
