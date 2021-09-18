@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class RecipeController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the recipe.
      *
      * @return \Illuminate\Http\Response
      */
@@ -18,7 +18,7 @@ class RecipeController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created recipe in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -34,7 +34,7 @@ class RecipeController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified recipe.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -45,7 +45,7 @@ class RecipeController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified recipe in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
@@ -60,7 +60,7 @@ class RecipeController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified recipe from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -68,5 +68,15 @@ class RecipeController extends Controller
     public function destroy($id)
     {
         Recipe::destroy($id);
+    }
+    /**
+     * Serach a recipe.
+     *
+     * @param  int  str
+     * @return \Illuminate\Http\Response
+     */
+    public function search($title)
+    {
+        return Recipe::where('title', 'like', '%'.$title.'%')->get();
     }
 }

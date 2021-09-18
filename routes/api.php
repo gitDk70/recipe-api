@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::resource('recipes', RecipeController::class);
+Route::get('/recipes/search/{title}', [RecipeController::class,'search']);
 
 // Route::get('/recipes', [RecipeController::class,'index']);
 // Route::post('/recipes', [RecipeController::class, 'store']);
