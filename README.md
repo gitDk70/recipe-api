@@ -34,24 +34,34 @@ php artisan serve
 # Routes
 ### Public
 
-GET   /api/recipes&nbsp;
-GET   /api/recipes/:id&nbsp;
+GET   /api/recipes  
 
-POST   /api/login&nbsp;
-@body: email, password&nbsp;
+GET   /api/recipes/:id  
 
-POST   /api/register&nbsp;
+
+POST   /api/login  
+
+@body: email, password  
+
+
+POST   /api/register  
+
 @body: name, email, password password_confirmation
 
 
 # Protected
 
-POST   /api/recipes&nbsp;
-@body: name, slug, description, price&nbsp;
+POST   /api/recipes  
 
-PUT   /api/recipes/:id&nbsp;
-@body: ?title, ?ingredients, ?body&nbsp;
+@body: name, slug, description, price  
 
-DELETE  /api/recipes/:id&nbsp;
 
-POST    /api/logout&nbsp;
+PUT   /api/recipes/:id  
+
+@body: ?title, ?ingredients, ?body  
+
+
+DELETE  /api/recipes/:id  
+
+
+POST    /api/logout  
