@@ -17,14 +17,14 @@ Laravel REST API with Sanctum (I followed Traversy Media tutorial : [https://www
 ## Usage
 Change the .env.example to .env and add your database info
 
-ForMysql, add
+For Mysql, add
 
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306 (8889 for MAMP)
-DB_DATABASE=recipe_api
-DB_USERNAME=root
-DB_PASSWORD=<your_root_password>
+DB_CONNECTION=mysql &nbsp;
+DB_HOST=127.0.0.1&nbsp;
+DB_PORT=3306 (8889 for MAMP)&nbsp;
+DB_DATABASE=recipe_api&nbsp;
+DB_USERNAME=root&nbsp;
+DB_PASSWORD=<your_root_password>&nbsp;
 
 # Create the recipe_api database in Mysql
 
@@ -34,24 +34,24 @@ php artisan serve
 # Routes
 ### Public
 
-GET   /api/recipes
-GET   /api/recipes/:id
+GET   /api/recipes&nbsp;
+GET   /api/recipes/:id&nbsp;
 
-POST   /api/login
-@body: email, password
+POST   /api/login&nbsp;
+@body: email, password&nbsp;
 
-POST   /api/register
-@body: name, email, password, password_confirmation
+POST   /api/register&nbsp;
+@body: name, email, password password_confirmation
 
 
 # Protected
 
-POST   /api/recipes
-@body: name, slug, description, price
+POST   /api/recipes&nbsp;
+@body: name, slug, description, price&nbsp;
 
-PUT   /api/recipes/:id
-@body: ?title, ?ingredients, ?body
+PUT   /api/recipes/:id&nbsp;
+@body: ?title, ?ingredients, ?body&nbsp;
 
-DELETE  /api/recipes/:id
+DELETE  /api/recipes/:id&nbsp;
 
-POST    /api/logout
+POST    /api/logout&nbsp;
