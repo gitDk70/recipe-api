@@ -17,14 +17,20 @@ Laravel REST API with Sanctum (I followed Traversy Media tutorial : [https://www
 ## Usage
 Change the .env.example to .env and add your database info
 
-For Mysql, add
+For Mysql :
 
-DB_CONNECTION=mysql &nbsp;
-DB_HOST=127.0.0.1&nbsp;
-DB_PORT=3306 (8889 for MAMP)&nbsp;
-DB_DATABASE=recipe_api&nbsp;
-DB_USERNAME=root&nbsp;
-DB_PASSWORD=<your_root_password>&nbsp;
+DB_CONNECTION=mysql 
+
+DB_HOST=127.0.0.1  
+
+DB_PORT=3306 (8889 for MAMP)  
+
+DB_DATABASE=recipe_api 
+
+DB_USERNAME=root 
+
+DB_PASSWORD=<your_root_password>  
+
 
 # Create the recipe_api database in Mysql
 
